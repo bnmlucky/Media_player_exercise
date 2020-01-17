@@ -11,6 +11,9 @@
   <scipt src="js/jquery.js"></scipt>
   <script src="js/mediaelement-and-player.min.js"></script>
   <link href="css/mediaelementplayer.css" rel="stylesheet">
+  <script src="skip-back/skip-back.min.js"></script>
+  <script src="skip-back/skip-back-i18n.js"></script>
+  <link href="skip-back/skip-back.min.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
 
 </head>
@@ -23,7 +26,7 @@
 
     <h2>Video Example</h2>
     <div class="videoWrapper">
-      <video width="852" height="480" class="mejs__player">
+      <video width="852" height="480">
         <source src="http://treehouse-code-samples.s3.amazonaws.com/html-video-and-audio/bridge.mp4" type="video/mp4">
         <source src="http://treehouse-code-samples.s3.amazonaws.com/html-video-and-audio/bridge.ogg" type="video/ogg">
         <track label="English" kind="subtitles" srclang="en" src="bridge-captions.vtt" default>
@@ -33,7 +36,7 @@
     <h2>Audio Example</h2>
 
     <div class="audioWrapper">
-      <audio class="mejs__player">
+      <audio>
         <source src="http://treehouse-code-samples.s3.amazonaws.com/html-video-and-audio/bridge-audio.mp3"
           type="audio/mp3">
       </audio>
@@ -41,6 +44,13 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.12/lang/ca.min.js"
     integrity="sha256-mWiIDmf1jAsthpjCzQlaeINDez3NxWT117KAshxTz78=" crossorigin="anonymous"></script>
+  <script>
+    $('video, audio').mediaelementplayer({
+      features: ['playpause', 'tracks', 'skipback', 'progress'],
+      startLanguage: 'en',
+      skipBackInterval: 4
+    });
+  </script>
 </body>
 
 </html>
